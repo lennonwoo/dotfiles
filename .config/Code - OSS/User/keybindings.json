@@ -1,0 +1,66 @@
+[
+    // UI related
+    { "key": "alt+t",       "command": "workbench.action.terminal.toggleTerminal" },
+    { "key": "alt+p",       "command": "workbench.action.toggleSidebarVisibility" },
+    { "key": "alt+a",       "command": "workbench.action.toggleActivityBarVisibility" },
+    { "key": "alt+s",       "command": "workbench.action.toggleStatusbarVisibility" },
+    { "key": "alt+m",       "command": "editor.action.toggleMinimap" },
+    { "key": "Escape",      "command": "workbench.action.togglePanel",
+                            "when": "panelFocus" },
+
+    // tab related
+    { "key": "ctrl+h",       "command": "workbench.action.previousEditorInGroup" },
+    { "key": "ctrl+l",       "command": "workbench.action.nextEditorInGroup" },
+    { "key": "alt+w",       "command": "workbench.action.closeOtherEditors" },
+    { "key": "alt+e",       "command": "workbench.action.lastEditorInGroup" },
+
+    // terminal related
+    { "key": "ctrl+h",      "command": "deleteLeft",
+                            "when": "terminalFocus" },
+    { "key": "ctrl+d",      "command": "deleteRight",
+                            "when": "terminalFocus" },
+    { "key": "ctrl+f",      "command": "cursorRight",
+                            "when": "terminalFocus" },
+    { "key": "ctrl+e",      "command": "cursorEnd",
+                            "when": "terminalFocus" },
+    { "key": "ctrl+a",      "command": "cursorHome",
+                            "when": "terminalFocus" },
+    { "key": "ctrl+p",      "command": "cursorUp",
+                            "when": "terminalFocus" },
+
+    // Vim related
+    { "key": "ctrl+b",      "command": "cursorLeft",
+                            "when": "editorTextFocus && !inDebugRepl && vim.mode == 'Insert'" },
+    { "key": "ctrl+f",      "command": "cursorRight",
+                            "when": "editorTextFocus && !inDebugRepl && vim.mode == 'Insert'" },
+    { "key": "ctrl+a",      "command": "cursorHome",
+                            "when": "editorTextFocus && !inDebugRepl && vim.mode == 'Insert'" },
+    { "key": "ctrl+e",      "command": "cursorEnd",
+                            "when": "editorTextFocus && !inDebugRepl && vim.mode == 'Insert'" },
+
+    // Misc
+    { "key": "alt+z",       "command": "workbench.action.toggleZenMode" },
+    { "key": "alt+z",       "command": "workbench.action.toggleZenMode",
+                            "when": "inZenMode"},
+    { "key": "alt+f",       "command": "actions.find" },
+    { "key": "alt+r",       "command": "editor.action.startFindReplaceAction" },
+    { "key": "alt+l",       "command": "extension.locateFile" },
+    { "key": "alt+v",       "command": "toggleVim" },
+    { "key": "ctrl+alt+n",  "command": "explorer.newFile" },
+    {
+        "key": "ctrl+shift+alt+o",
+        "command": "workbench.action.openRecent"
+    },
+    {
+        "key": "ctrl+alt+e",
+        "command": "workbench.view.explorer"
+    },
+    {
+        "key": "ctrl+alt+f",
+        "command": "workbench.view.search"
+    },
+    {
+        "key": "ctrl+m",
+        "command": "-editor.action.toggleTabFocusMode"
+    },
+]

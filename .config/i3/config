@@ -1,0 +1,177 @@
+# *********************************************************
+# ******************Lennon's customize*********************
+# *********************************************************
+
+set $mod Mod4
+font pango:Source Code Pro 9
+bar {
+	position top
+  # mode hide
+  # modifier $mod
+  status_command py3status -c ~/.config/i3/py3status.conf
+}
+
+mode "resize" {
+        bindsym h resize shrink width 1 px or 1 ppt
+        bindsym j resize grow height 1 px or 1 ppt
+        bindsym k resize shrink height 1 px or 1 ppt
+        bindsym l resize grow width 1 px or 1 ppt
+        bindsym Shift+h resize shrink width 5 px or 5 ppt
+        bindsym Shift+j resize grow height 5 px or 5 ppt
+        bindsym Shift+k resize shrink height 5 px or 5 ppt
+        bindsym Shift+l resize grow width 5 px or 5 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+mode "moveit" {
+    bindsym h move left 10 px or 10 ppt
+    bindsym j move down 10 px or 10 ppt
+    bindsym k move up 10 px or 10 ppt
+    bindsym l move right 10 px or 10 ppt
+    bindsym Shift+h move left 50 px or 50 ppt
+    bindsym Shift+j move down 50 px or 50 ppt
+    bindsym Shift+k move up 50 px or 50 ppt
+    bindsym Shift+l move right 50 px or 50 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+comma focus floating; mode "moveit"
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Home mode "$mode_system"
+
+# *********************************************************
+# **********************Keybingding************************
+# *********************************************************
+
+# change focus
+# bindsym $mod+j focus left
+# bindsym $mod+k focus down
+# bindsym $mod+l focus up
+# bindsym $mod+semicolon focus right
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace dock
+bindsym $mod+b workspace Browser
+bindsym $mod+w workspace Windows
+bindsym $mod+u workspace Ubuntu
+bindsym $mod+p workspace pdf
+bindsym $mod+n workspace Notes
+bindsym $mod+minus workspace Server
+bindsym $mod+plus workspace plus
+bindsym $mod+t workspace Talk
+bindsym $mod+g workspace Game
+bindsym $mod+z workspace Cache
+
+# move focused container to workspace
+bindsym $mod+Ctrl+1 move container to workspace 1
+bindsym $mod+Ctrl+2 move container to workspace 2
+bindsym $mod+Ctrl+3 move container to workspace 3
+bindsym $mod+Ctrl+4 move container to workspace 4
+bindsym $mod+Ctrl+5 move container to workspace 5
+bindsym $mod+Ctrl+6 move container to workspace 6
+bindsym $mod+Ctrl+7 move container to workspace 7
+bindsym $mod+Ctrl+8 move container to workspace 8
+bindsym $mod+Ctrl+9 move container to workspace 9
+bindsym $mod+Ctrl+0 move container to workspace dock
+bindsym $mod+Ctrl+b move container to workspace Browser
+bindsym $mod+Ctrl+w move container to workspace Windows
+bindsym $mod+Ctrl+u move container to workspace Ubuntu
+bindsym $mod+Ctrl+p move container to workspace pdf
+bindsym $mod+Ctrl+n move container to workspace Notes
+bindsym $mod+Ctrl+minus move container to workspace Server
+bindsym $mod+Ctrl+plus move container to workspace plus
+bindsym $mod+Ctrl+t move container to workspace Talk
+bindsym $mod+Ctrl+g move container to workspace Game
+bindsym $mod+Ctrl+z move container to workspace Cache
+
+
+bindsym $mod+Ctrl+c reload
+bindsym $mod+Ctrl+r restart
+
+bindsym $mod+space floating toggle
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+# Automatic back-and-forth when switching to the current workspace
+workspace_auto_back_and_forth yes
+
+# default config change
+new_window none
+# new_window normal
+# format title
+# for_window [class=".*"] title_format "<i>%instance</i>"
+bindsym $mod+c kill
+bindsym $mod+m fullscreen toggle
+
+# Tab & Workspaces change
+bindsym Mod1+Tab focus right
+force_focus_wrapping yes
+bindsym Mod1+Shift+Tab focus left
+bindsym $mod+Tab workspace back_and_forth
+
+# Bind fn things
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master 5%- unmute; py3-cmd refresh volume_status"
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master 5%+ unmute; py3-cmd refresh volume_status"
+bindsym Shift+F2 exec "amixer -q sset Master 5%- unmute; py3-cmd refresh volume_status"
+bindsym Shift+F3 exec "amixer -q sset Master 5%+ unmute; py3-cmd refresh volume_status"
+bindsym Shift+F11 exec "xbacklight -del 10"
+bindsym Shift+F12 exec "xbacklight -inc 10"
+
+# bindsym Shift+F2 exec "amixer -q sset Capture 5%- unmute; py3-cmd refresh volume_status"
+# bindsym Shift+F3 exec "amixer -q sset Capture 5%+ unmute; py3-cmd refresh volume_status"
+bindsym XF86AudioMute exec "amixer -q sset Master toggle; py3-cmd refresh volume_status"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; py3-cmd refresh backlight"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; py3-cmd refresh backlight"
+
+# app shortcut
+# bindsym $mod+w exec google-chrome-stable
+# bindsym $mod+f exec thunar
+bindsym $mod+v exec virtualbox
+bindsym $mod+a exec xfce4-appfinder
+bindsym $mod+s exec xfce4-taskmanager
+bindsym $mod+Return exec i3-sensible-terminal
+
+# Scratchpad very handy!!!!!
+bindsym $mod+h move scratchpad
+bindsym $mod+i [title="^((?!Zeal)(?!Doom)(?!GoldenDict)(?!Terminal)(?!File Manager).)*$"] scratchpad show
+bindsym $mod+e [title=".*Doom.*$"] scratchpad show;
+bindsym $mod+f [title=".*File Manager$"] scratchpad show;
+bindsym $mod+d [title=".*Zeal$"] scratchpad show
+bindsym $mod+o [title="^Terminal.*"] scratchpad show
+# bindsym $mod+k [title=".*GoldenDict$"] scratchpad show, resize set 743 1051;
+bindsym $mod+k [title=".*GoldenDict$"] scratchpad show
+
+# autostart
+exec --no-startup-id fcitx
+# exec /home/lennon/bin/dropbox.py start
+# exec google-chrome-stable
+exec xfce4-terminal
+# exec goldendict
+exec thunar
+exec emacs
+# exec /home/lennon/bin/rescuetime
+# exec redshift -l 30.2741:120.1551
