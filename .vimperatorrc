@@ -1,0 +1,78 @@
+" lennonwoo 1/4/2017
+
+map <C-A-l> :source ~/.vimperatorrc<CR>
+
+" Gui
+set gui=none,tabs,addons
+set noscrollbars
+
+" Mappings
+map <C-r> :restart<CR>
+map <C-h> gT
+map <C-l> gt
+map <C-a> g$gt
+map <C-e> g$
+map <C-j> <Nop>
+map <C-k> <Nop>
+map <C-z> :stop<CR>
+map O :tabopen<Space>
+map P :tabopen<Space><C-v><CR>
+map <C-m> :nohlsearch<CR>
+map b <Nop>
+map d <Nop>
+map t <Nop>
+map B :buffer<Space>
+map bb :bmark<CR>
+map bl :bmarks<Space>
+map br :delbmarks<Space>
+map bm :marks<CR>
+map hi :history<Space>
+cmap <C-f> <Right>
+cmap <C-b> <Left>
+cmap <C-j> <Tab>
+cmap <C-k> <S-Tab>
+imap <C-f> <Right>
+imap <C-b> <Left>
+imap <C-j> <Down>
+
+" use Space key g to search certain website via google
+map vs :viewsource<CR>
+
+map sa :tabopen<Space>archlinux<Space>
+map sd :tabopen<Space>site:douban.com<Space>
+map ss :tabopen<Space>site:stackoverflow.com<Space>
+map sq :tabopen<Space>site:quora.com<Space>
+map sz :tabopen<Space>site:zhihu.com<Space>
+map sp :tabopen<Space>filetype:pdf<Space>
+map sy :tabopen<Space>python<Space>
+map sgr :tabopen<Space>site:goodreads.com<Space>
+map sgh :tabopen<Space>site:github.com<Space>
+
+map tr :tabopen<Space>https://www.rescuetime.com/dashboard<CR>
+map tR :tabopen<Space>https://www.rescuetime.com/offline_time<CR>
+map th :tabopen<Space>https://news.ycombinator.com<CR>
+map tw :tabopen<Space>https://en.wikipedia.org/wiki/Main_Page<CR>
+map tf :tabopen<Space>https://feedly.com/i/latest<CR>
+map ts :tabopen<Space>http://stackoverflow.com/questions?sort=newest<CR>
+map tn :tabopen<Space>about:blank<CR>
+map tgm :tabopen<Space>https://inbox.google.com<CR>
+map tgh :tabopen<Space>https://github.com/lennonwoo<CR>
+map tgn :tabopen<Space>https://github.com/search?l=Python&o=desc&q=stars:>10&s=updated&type=Repositories&utf8=✓<CR>:tabopen<Space>https://github.com/search?l=Shell&o=desc&q=stars:>10&s=updated&type=Repositories&utf8=✓<CR>:tabopen<Space>https://github.com/search?l=C&o=desc&q=stars:>10&s=updated&type=Repositories&utf8=✓<CR>
+
+map gh :tabopen<Space>https://github.com/lennonwoo<CR>
+map gH :tabopen<Space>https://lennonwoo.github.io<CR>
+map gq :tabopen<Space>https://portal.qiniu.com/bucket/blog/resource<CR>
+
+" git clone shortcut
+map gc y:!xfce4-terminal --working-directory ~/GitHub -e 'git clone '<Left><C-v><CR>
+
+" Options
+set titlestring=Firefox
+set editor='/usr/bin/gvim'
+set nextpattern=\s*下一页|下一张|下页\s*,\bnext\b,^>$,^(>>|››|»)$,^(>|»),(>|»)$,\bmore\b
+set previouspattern=\s*上一页|上一张|上页\s*,\bprev|previous\b,^<$,^(<<|‹‹|«)$,^(<|«),(<|«)$
+set hintchars=asdfglkjhnvei
+" set hintmatching=fuzzy
+
+echomsg "The ~/.vimperatorrc file loads completed"
+

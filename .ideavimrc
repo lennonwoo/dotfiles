@@ -1,0 +1,94 @@
+source ~/.vimrc
+
+" use vim-surround
+set surround
+
+" built-in navigation to navigated items works better
+map <c-o> :action Back<cr>
+map <c-i> :action Forward<cr>
+
+" window manage
+map <C-c>m :action VimWindowOnly<cr>
+map <C-c>h :action CloseContent<cr>
+map <C-c>r :action ReopenClosedTab<cr>
+nnoremap <Space>wr :action ReopenClosedTab<cr>
+nnoremap <Space>w/ :vsplit<cr>
+nnoremap <Space>w- :split<cr>
+nnoremap <Space>wj <C-W>j
+nnoremap <Space>wk <C-W>k
+nnoremap <Space>wh <C-W>h
+nnoremap <Space>wl <C-W>l
+nnoremap <C-w> :action CloseContent<cr>
+
+" file change
+nnoremap <Space>ff :action GotoFile<cr>
+nnoremap <Space>fr :action RecentFiles<cr>
+nnoremap <Space>fn :action NewFile<cr>
+nnoremap <Space>fd :action NewDir<cr>
+nnoremap <Space>fp :action ShowFilePath<cr>
+nnoremap <Space>fs :w<cr>
+
+nnoremap <Space>S :action FileStructurePopup<cr>
+nnoremap <Space>sm :action ShowPopupMenu<cr>
+
+" search part
+nnoremap <Space>su :action ShowUsages<cr>
+nnoremap <Space>sp :action FindInPath<cr>
+nnoremap <Space>ss :action GotoSymbol<cr>
+nnoremap <Space>se :action SearchEverywhere<cr>
+
+" debug
+nnoremap <Space>bb :action ToggleLineBreakpoint<cr>
+nnoremap <Space>bl :action ViewBreakpoints<cr>
+
+" refactor
+nnoremap <Space>re :action RenameElement<cr>
+nnoremap <Space>rv :action IntroduceVariable<cr>
+nnoremap <Space>rs :action SurroundWith<cr>
+nnoremap <Space>rl :action Refactorings.QuickListPopupAction<cr>
+
+" configuration
+nnoremap <Space>cd :action ChooseDebugConfiguration<cr>
+nnoremap <Space>cr :action ChooseRunConfiguration<cr>
+
+" code navigation
+nnoremap <Space>gt :action GotoTest<cr>
+nnoremap gp :action MethodUp<cr>
+nnoremap gn :action MethodDown<cr>
+nnoremap gS :action GotoSuperMethod<cr>
+
+" error nativation
+nnoremap <Space>en :action GotoNextError<cr>
+nnoremap <Space>ep :action GotoPreviousError<cr>
+
+" in/de font size
+nnoremap zi :action EditorIncreaseFontSize<cr>
+nnoremap zo :action EditorDecreaseFontSize<cr>
+" expand/collapse region
+nnoremap ze :action ExpandRegion<cr>
+nnoremap zE :action ExpandAllRegions<cr>
+nnoremap zc :action CollapseRegion<cr>
+nnoremap zC :action CollapseAllRegions<cr>
+
+" remote develop
+nnoremap <Space>ru :action PublishGroup.UploadTo<cr>
+nnoremap <Space>rs :action PublishGroup.SyncLocalVsRemoteWith<cr>
+
+nnoremap <C-A-l> :source ~/.ideavimrc<cr>
+nnoremap <Space>as :action ActivateStructureToolWindow<cr>
+nnoremap <Space>ac :action ActivateEventLogToolWindow<cr>
+nnoremap <Space>at :action ActivateTODOToolWindow<cr>
+nnoremap <Space>af :action ActivateFindToolWindow<cr>
+nnoremap <Space>ar :action ActivateRunToolWindow<cr>
+nnoremap <Space>ad :action ActivateDebugToolWindow<cr>
+nnoremap <Space>aa :action GotoAction<cr>
+nnoremap <Space>' :action ActivateTerminalToolWindow<cr>
+nnoremap <Space>t :action ActivateTODOToolWindow<cr>
+
+
+map <C-c>t O#<Space>TODO(lennon)<Space>
+map <C-c>i :action OptimizeImports<cr>
+
+nnoremap <Space>gs :action Vcs.QuickListPopupAction<CR>
+nnoremap <C-c>r :action Replace<cr>
+nnoremap <C-c>f :action Find<cr>
