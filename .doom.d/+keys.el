@@ -154,6 +154,11 @@
      (:prefix "C-c"
      :in "SPC" #'sly-compile-defun
      :in "d"   #'sly-documentation
+     ))
+   (:map sly-mrepl-mode-map
+     :in "C-j" #'my-awesome-tab-switch-group
+     (:prefix "C-c"
+     :inv "C-z" #'evil-switch-to-windows-last-buffer
      )))
  )
 

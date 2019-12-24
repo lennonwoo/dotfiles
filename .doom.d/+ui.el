@@ -16,6 +16,7 @@
      (string-prefix-p "*helm" name)
      (string-prefix-p "*Compile-Log*" name)
      (string-prefix-p "*lsp" name)
+     (string-prefix-p "*sly" name)
      (and (string-prefix-p "magit" name)
                (not (file-name-extension name)))
      )))
@@ -28,8 +29,7 @@ All buffer name start with * will group to \"Emacs\".
 Other buffer group by `awesome-tab-get-group-name' with project name."
   (list
    (cond
-    ((or (and (not (string-equal "*Org" (substring (buffer-name) 0 4)))
-               (string-equal "*" (substring (buffer-name) 0 1)))
+    ((or (string-prefix-p "*sly-mrepl" (buffer-name))
          (memq major-mode '(magit-process-mode
                             magit-status-mode
                             magit-diff-mode
@@ -41,7 +41,8 @@ Other buffer group by `awesome-tab-get-group-name' with project name."
      "Emacs")
     ((derived-mode-p 'dired-mode)
      "Dired")
-    (t "Common"))))
+    (t
+     (awesome-tab-get-group-name (current-buffer))))))
 
 (awesome-tab-mode 1)
 (column-number-mode)
