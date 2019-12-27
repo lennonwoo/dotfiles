@@ -33,12 +33,12 @@
  :n "C-p" #'zilongshanren/open-file-with-projectile-or-counsel-git
  :in "C-s" #'save-buffer
 
- ;; Window manager
  (:prefix "C-c"
    :in "k" #'evil-delete-buffer
    :in "w" #'+workspace/close-window-or-workspace
    :in "m" #'maximize-window
    :in "j" #'open-junk-file
+   :in "p" #'prelude-copy-file-name-to-clipboard
    )
 
  ;; Awesome tab related

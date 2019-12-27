@@ -142,3 +142,13 @@
   (let* ((all-groups (awesome-tab-get-groups))
          (current-group (funcall awesome-tab-buffer-groups-function)))
     (delete (car current-group) all-groups)))
+
+(defun prelude-copy-file-name-to-clipboard ()
+  "Copy the current buffer file name to the clipboard."
+  (interactive)
+  (let ((filename (abbreviate-file-name (if (equal major-mode 'dired-mode)
+                                            default-directory
+                                          (buffer-file-name)))))
+    (when filename
+      (kill-new filename)
+      (message "Copied buffer file name '%s' to the clipboard." filename))))
