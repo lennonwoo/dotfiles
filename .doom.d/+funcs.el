@@ -89,18 +89,7 @@
   (let ((delete-window-fn (if (featurep 'evil) #'evil-window-delete #'delete-window)))
     (if (window-dedicated-p)
         (funcall delete-window-fn)
-      (let ((current-persp-name (+workspace-current-name)))
-        (cond ((or (+workspace--protected-p current-persp-name)
-                   (cdr (doom-visible-windows)))
-               (funcall delete-window-fn))
-
-              ((cdr (+workspace-list-names))
-               (let ((frame-persp (frame-parameter nil 'workspace)))
-                 (if (string= frame-persp (+workspace-current-name))
-                     (delete-frame)
-                   (+workspace/delete current-persp-name))))
-
-              (t (my/awesome-tab-kill-current-buffer)))))))
+      (my/awesome-tab-kill-current-buffer))))
 
 (defun my/dired-sidebar-show-sidebar ()
   (interactive)
