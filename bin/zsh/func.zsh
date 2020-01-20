@@ -25,3 +25,10 @@ enable-lennon-bloom-env() {
     export BLOOM_VERBOSE=1
     export ROSDISTRO_INDEX_URL=https://raw.githubusercontent.com/lennonwoo/rosdistro/master/index-v4.yaml
 }
+
+vbox-init() {
+    xrandr --newmode "1920x1080"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+    xrandr --addmode Virtual-1 1920x1080
+    xrandr --output Virtual-1 --mode 1920x1080
+    VBoxClient-all
+}
